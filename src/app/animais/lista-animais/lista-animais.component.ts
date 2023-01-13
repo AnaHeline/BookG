@@ -26,5 +26,4 @@ export class ListaAnimaisComponent implements OnInit{
       });
     });
   }
-
 }
