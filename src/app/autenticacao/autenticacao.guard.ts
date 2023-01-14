@@ -1,6 +1,6 @@
-import { UsuarioService } from './../autenticacao/usuario/usuario.service';
+import { UsuarioService } from './usuario/usuario.service';
 import { Injectable } from '@angular/core';
-import { CanLoad, Route, UrlSegment, UrlTree, Router } from '@angular/router';
+import { CanLoad, Route, Router, UrlSegment, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -15,12 +15,11 @@ export class AutenticacaoGuard implements CanLoad {
 
   canLoad(
     route: Route,
-    segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean
-    | UrlTree {
+    segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (!this.usuarioService.estaLogado()){
       this.router.navigate(['']);
       return false;
     }
-    return true;
+      return true;
   }
 }
